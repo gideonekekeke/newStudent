@@ -39,7 +39,13 @@ const AllQuestion = () => {
 		const newURL = `${url}/api/test/viewTest`;
 		await axios.get(newURL).then((res) => {
 			setTestData(res?.data?.data[0]);
-			setAllMapTest(res?.data?.data[0]?.AllTest);
+		});
+	};
+	const fetchTestData = async () => {
+		const local = "http://localhost:15790";
+		const newURL = `${url}/api/test/viewTested`;
+		await axios.get(newURL).then((res) => {
+			setAllMapTest(res?.data?.data);
 			// console.log(testData);
 		});
 	};
@@ -58,8 +64,8 @@ const AllQuestion = () => {
 
 	const submitTest = async () => {
 		setLoading(true);
-		for (let i = 0; i < testData?.AllTest?.length; i++) {
-			correctAnswer.push(testData?.AllTest[i].answer);
+		for (let i = 0; i < allMapTest.length; i++) {
+			correctAnswer.push(allMapTest[i].answer);
 
 			if (correctAnswer[i] === Object.values(answer)[i]) {
 				score++;
@@ -141,11 +147,12 @@ const AllQuestion = () => {
 
 	React.useEffect(() => {
 		fetchData();
+		fetchTestData();
 		// if (showNew) {
 		if (testData) {
 			StartTimer();
 		}
-	}, []);
+	}, [user]);
 	return (
 		<Container>
 			{loading ? <Loading /> : null}
@@ -234,7 +241,7 @@ const AllQuestion = () => {
 						<Instruct>{testData.instruction}</Instruct>
 					</InstQues>
 
-					{testData?.AllTest?.map((props, i) => (
+					{allMapTest?.map((props, i) => (
 						<MainQuestions key={props._id}>
 							<QuestionHold>
 								<No>{i + 1}.</No>

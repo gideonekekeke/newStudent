@@ -18,7 +18,7 @@ const EntryUserPage = () => {
 	const [Users, setUser] = useRecoilState(UserData);
 	const user = useRecoilValue(UserData);
 
-	console.log("recoil user", user);
+	// console.log("recoil user", user);
 
 	const CheckUserRegister = async () => {
 		setLoading(true);
