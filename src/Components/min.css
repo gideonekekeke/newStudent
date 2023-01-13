@@ -1,0 +1,91 @@
+.admin_card {
+	/* height: 400px; */
+	width: 400px;
+	background-color: whitesmoke;
+	border-radius: 10px;
+	margin: 10px;
+	box-shadow: 0px 5px 7px -2px rgba(0, 0, 0, 0.35);
+}
+
+.admin_container {
+	width: 100%;
+
+	margin-top: 20px;
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.admin_back {
+	width: 80%;
+}
+
+.card_holder {
+	display: flex;
+	width: 90%;
+	margin: 10px;
+	flex-direction: column;
+}
+
+.card_img {
+	height: 50px;
+	width: 50px;
+	background-color: gray;
+	border-radius: 50px;
+}
+
+.name_img {
+	display: flex;
+	/* background-color: red; */
+	width: 100%;
+	align-items: center;
+}
+.card_img1 {
+	height: 50px;
+	width: 50px;
+	background-color: gray;
+	border-radius: 50px;
+}
+
+.name_img1 {
+	display: flex;
+	/* background-color: red; */
+	width: 100%;
+	align-items: center;
+}
+
+.mr_ubani {
+	display: flex;
+	/* background-color: blue; */
+	justify-content: space-around;
+	align-items: center;
+}
+
+.box {
+	/* height: 100px; */
+	padding: 10px;
+	width: 100%;
+	background-color: white;
+	margin: 3px;
+	box-shadow: 0px 5px 7px -2px rgba(0, 0, 0, 0.35);
+	border-radius: 10px;
+}
+
+.box_input {
+	/* background-color: red; */
+	display: flex;
+	flex-wrap: wrap;
+
+	justify-content: center;
+	align-items: center;
+}
+
+.button1 {
+	background: #101522;
+	color: white;
+}
+.button2 {
+	background: red;
+	color: white;
+}
