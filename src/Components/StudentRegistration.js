@@ -16,6 +16,8 @@ import { SiJavascript } from "react-icons/si";
 import { ImHtmlFive } from "react-icons/im";
 import { SiFirebase } from "react-icons/si";
 import { AiOutlineGithub } from "react-icons/ai";
+import pic1 from "./Assets/ab1.svg";
+import pic2 from "./Assets/ab2.svg";
 
 import { Link, useNavigate } from "react-router-dom";
 
@@ -42,6 +44,7 @@ const StudentRegistration = () => {
 		email: yup.string().email().required("Please enter your desired email!"),
 		phoneNumber: yup.string().required("Please enter your phoneNumber!"),
 		profile: yup.string().required("Please enter a profile about you!"),
+		localgovernment: yup.string().required("Please select your local government!"),
 	});
 
 	const {
@@ -59,7 +62,8 @@ const StudentRegistration = () => {
 	};
 
 	const onSubmit = handleSubmit(async (value) => {
-		const { name, email, address, phoneNumber, profile } = value;
+		const { name, email, address, phoneNumber, profile, localgovernment } =
+			value;
 		if (!avatar) {
 			Swal.fire({
 				title: "Please upload an image",
@@ -74,6 +78,7 @@ const StudentRegistration = () => {
 			formData.append("email", email);
 			formData.append("address", address);
 			formData.append("profile", profile);
+			formData.append("localgovernment", localgovernment);
 			formData.append("phoneNumber", phoneNumber);
 			formData.append("avatar", avatar);
 
@@ -113,7 +118,7 @@ const StudentRegistration = () => {
 				<Card onSubmit={onSubmit}>
 					<LogoHolder to='/'>
 						{/* <Bar>One</Bar> */}
-						<Logo>CODELAB NEW-INTAKE FORM</Logo>
+						<Logo>KODE10X NEW-INTAKE FORM</Logo>
 					</LogoHolder>
 					{avatar ? (
 						<div
@@ -161,7 +166,7 @@ const StudentRegistration = () => {
 					<Title>
 						<TitleHead>Register 🚀🥊</TitleHead>
 						<TitleSub>
-							to stay connected with <span>CODELAB</span>, at all times!
+							to stay connected with <span>Kode10X</span>, at all times!
 						</TitleSub>
 					</Title>
 					<br />
@@ -205,7 +210,7 @@ const StudentRegistration = () => {
 
 					<InputRow>
 						<InputHolder1>
-							<Label>Full Name</Label>
+							<Label>FullName</Label>
 							<Input placeholder='Full Name' {...register("name")} />
 							<Error>{errors?.name?.message}</Error>
 						</InputHolder1>
@@ -238,9 +243,41 @@ const StudentRegistration = () => {
 					</InputRow>
 
 					<InputHolder>
+						<Label>Local govement</Label>
+						<Select {...register("localgovernment")}>
+							<option disabled selected value='Alimosho'>
+								--Select localgovernment--
+							</option>
+							<option value='Alimosho'> Alimosho</option>
+							<option value='Ajeromi-Ifelodun'> Ajeromi-Ifelodun</option>
+							<option value='Kosofe'>Kosofe</option>
+							<option value='Mushin'>Mushin</option>
+							<option value='Oshodi-Isolo'>Oshodi-Isolo</option>
+							<option value='Ojo'> Ojo</option>
+							<option value='Ikorodu'> Ikorodu</option>
+							<option value='Surulere'>Surulere</option>
+							<option value='Agege'> Agege</option>
+							<option value='Ifako-Ijaiye'>Ifako-Ijaiye</option>
+							<option value='Somolu'> Somolu</option>
+							<option value='Amuwo-Odofin'>Amuwo-Odofin</option>
+							<option value='Lagos Mainland'>Lagos Mainland </option>
+							<option value='Ikeja'>Ikeja</option>
+							<option value='	Eti-Osa'> Eti-Osa</option>
+							<option value='Badagry'> Badagry</option>
+							<option value='Apapa'>Apapa</option>
+							<option value='Lagos Island'>Lagos Island</option>
+							<option value='Epe'> Epe</option>
+							<option value='Ibeju-Lekki'>Ibeju-Lekki</option>
+							<option value='Others'>Others</option>
+						</Select>
+
+						<Error>{errors?.localgovernment?.message}</Error>
+					</InputHolder>
+
+					<InputHolder>
 						<Label>Profile</Label>
 						<Input
-							placeholder='Profile about yourself'
+							placeholder='Write a Profile about yourself'
 							{...register("profile")}
 						/>
 						<Error>{errors?.profile?.message}</Error>
@@ -291,10 +328,7 @@ const StudentRegistration = () => {
 			</Wrapper>
 
 			<Space />
-			<Holder>
-				<Left src={left} />
-				<Right src={right} />
-			</Holder>
+			<Holder></Holder>
 		</Container>
 	);
 };
@@ -422,7 +456,7 @@ const BUtton = styled.button`
 	margin: 20px 0;
 	width: 100%;
 	height: 50px;
-	background-color: ${({ bg }) => (bg ? "#742e9d" : "gray")};
+	background-color: ${({ bg }) => (bg ? "#0B163F" : "gray")};
 	color: white;
 	border: 0;
 	outline: none;
@@ -440,7 +474,7 @@ const BUtton = styled.button`
 const COntent = styled.div`
 	font-size: 13px;
 	span {
-		color: #742e9d;
+		color: #0b163f;
 		font-weight: 700;
 	}
 `;
@@ -474,6 +508,19 @@ const Input = styled.input`
 	}
 `;
 
+const Select = styled.select`
+	width: 97%;
+	height: 100%;
+	outline: none;
+	border: 0;
+	background-color: transparent;
+	::placeholder {
+		font-family: Poppins;
+		padding-left: 10px;
+		color: lightgray;
+	}
+`;
+
 const Label = styled.label`
 	font-size: 14px;
 	position: absolute;
@@ -489,12 +536,12 @@ const InputHolder2 = styled.div`
 	flex-direction: column;
 	position: relative;
 	margin-bottom: 35px;
-	border: 1px solid #742e9d;
+	border: 1px solid #0b163f;
 	width: 100%;
 	height: 40px;
 	border-radius: 3px;
 	margin-left: 3px;
-	color: #742e9d;
+	color: #0b163f;
 `;
 
 const InputHolder1 = styled.div`
@@ -502,12 +549,12 @@ const InputHolder1 = styled.div`
 	flex-direction: column;
 	position: relative;
 	margin-bottom: 35px;
-	border: 1px solid #742e9d;
+	border: 1px solid #0b163f;
 	width: 100%;
 	height: 40px;
 	border-radius: 5px;
 	margin-right: 5px;
-	color: #742e9d;
+	color: #0b163f;
 `;
 
 const InputHolder = styled.div`
@@ -515,11 +562,11 @@ const InputHolder = styled.div`
 	flex-direction: column;
 	position: relative;
 	margin-bottom: 35px;
-	border: 1px solid #742e9d;
+	border: 1px solid #0b163f;
 	width: 100%;
 	height: 40px;
 	border-radius: 5px;
-	color: #742e9d;
+	color: #0b163f;
 `;
 
 const TitleSub = styled.div`
@@ -527,7 +574,7 @@ const TitleSub = styled.div`
 	font-weight: 500;
 	font-size: 13px;
 	span {
-		color: #742e9d;
+		color: #0b163f;
 		font-weight: bold;
 	}
 `;
@@ -535,7 +582,7 @@ const TitleSub = styled.div`
 const TitleHead = styled.div`
 	font-size: 22px;
 	font-weight: bolder;
-	color: #742e9d;
+	color: #0b163f;
 `;
 
 const Title = styled.div`
@@ -553,7 +600,7 @@ const LogoTitle = styled.div`
 
 const Logo = styled.div`
 	padding: 20px;
-	color: #742e9d;
+	color: #0b163f;
 
 	border-radius: 3px;
 	margin-right: 5px;
@@ -572,7 +619,7 @@ const Card = styled.form`
 	height: 100%;
 
 	@media screen and (max-width: 500px) {
-		height: 100vh;
+		min-height: 500px;
 	}
 `;
 
@@ -626,7 +673,7 @@ const Space = styled.div`
 
 const Container = styled.div`
 	width: 100%;
-	height: 100vh;
+	min-height: 130vh;
 	display: flex;
 	flex-direction: column;
 	position: relative;

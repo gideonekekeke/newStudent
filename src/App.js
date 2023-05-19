@@ -1,5 +1,5 @@
 import logo from "./logo.svg";
-import "./App.css";
+// import "./App.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import StudentRegistration from "./Components/StudentRegistration";
 import { ViewStudents } from "./Components/ViewStudents";
@@ -23,14 +23,11 @@ function App() {
 				<Routes>
 					<Route path='/' element={<StudentRegistration />} />
 					<Route path='/studentview' element={<HomeView />} />
-
 					<Route path='/logic-iqtest-page' element={<EntryUserPage />} />
-
 					<Route
 						path='/student-iq-test-457erhfbdr46364783-codelab-intake-578349ffdnbghg-question'
 						element={<AllQuestion />}
 					/>
-
 					<Route path='/admin-createquest' element={<AdminCreateQuestion />} />
 					<Route path='/allintake-students' element={<ViewStudents />} />
 					<Route path='/admin-psychologicalPage' element={<BukolaPage />} />
@@ -42,4 +39,4 @@ function App() {
 	);
 }
 
-export default App;
+export default App

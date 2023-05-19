@@ -155,6 +155,7 @@ function BukolaPage() {
 							createdAt,
 							phoneNumber,
 							address,
+							localgovernment,
 							_id,
 						}) => (
 							<div className='admin_card'>
@@ -174,9 +175,10 @@ function BukolaPage() {
 										</div>
 										<div
 											style={{
-												marginLeft: "30px",
+												marginLeft: "20px",
 												fontWeight: "bold",
 												textTransform: "uppercase",
+												fontSize : "14px"
 											}}>
 											{name}
 											<div
@@ -195,14 +197,26 @@ function BukolaPage() {
 												}}>
 												<FiPhoneCall /> {phoneNumber}
 											</div>
-											<div
-												style={{
-													fontSize: "12px",
-													fontWeight: "lighter",
-													textTransform: "none",
-												}}>
-												<ImLocation2 />
-												{address}
+
+											<div style = {{display : "flex", alignItems : "center"}}>
+												<div
+													style={{
+														fontSize: "12px",
+														fontWeight: "lighter",
+														textTransform: "none",
+														marginRight : "10px"
+													}}>
+													<ImLocation2 />
+													{address}
+												</div>
+												<div style = {{fontSize : "10px",
+												border : "1px solid coral",
+												padding : "5px",
+												borderRadius : "20px",
+												color : "coral"
+											
+											
+											}}>{localgovernment}</div>
 											</div>
 										</div>
 									</div>
@@ -218,7 +232,7 @@ function BukolaPage() {
 											<div className='name_img1'>
 												<div className='card_img1'>
 													<img
-														src={pic}
+														src='https://shanghai-date.com/uploads/g/t/t/h/q2t34kjldqrqv0pl7ihh.png'
 														style={{
 															height: "100%",
 															width: "100%",
@@ -228,7 +242,9 @@ function BukolaPage() {
 														}}
 													/>
 												</div>
-												<div style={{ marginLeft: "10px" }}>Bukola Gbemi</div>
+												<div style={{ marginLeft: "10px" }}>
+													Admin Psychology
+												</div>
 											</div>
 											<center></center>
 											<input

@@ -18,14 +18,14 @@ const HomeView = () => {
 			<Wrapper>
 				<Card>
 					<LogoHolder to='/'>
-						<Logo>CodeLab</Logo>
+						<Logo>Kode10X</Logo>
 					</LogoHolder>
 
 					<Title>
 						<TitleHead>Registration Successfull 🚀🥊</TitleHead>
 						<br />
 						<TitleSub>
-							You Have Successfull Register to CodeLab New Intake Interview,
+							You Have Successfull Register to Kode10X New Intake Interview,
 							<span> Goodluck on Your Interview. </span>
 							<div
 								style={{
@@ -60,8 +60,8 @@ const HomeView = () => {
 
 			<Space />
 			<Holder>
-				<Left src={left} />
-				<Right src={right} />
+				
+				
 			</Holder>
 		</Container>
 	);
@@ -178,7 +178,7 @@ const LogoTitle = styled.div`
 
 const Logo = styled.div`
 	padding: 20px;
-	background-color: #742e9d;
+	background-color: #0B163F;
 	color: white;
 	border-radius: 3px;
 	margin-right: 5px;

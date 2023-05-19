@@ -41,14 +41,18 @@ const AllQuestion = () => {
 			setTestData(res?.data?.data[0]);
 		});
 	};
+
+	const page = Math.floor(Math.random() * 18);
+
 	const fetchTestData = async () => {
 		const local = "http://localhost:15790";
-		const newURL = `${url}/api/test/viewTested`;
+		const newURL = `${url}/api/test/viewTested?page=${page}`;
 		await axios.get(newURL).then((res) => {
 			setAllMapTest(res?.data?.data);
 			// console.log(testData);
 		});
 	};
+
 	const [loading, setLoading] = useState(false);
 
 	const onRadioButtonChange = (e) => {
@@ -101,28 +105,30 @@ const AllQuestion = () => {
 		// 	testCode: testData.testCode,
 		// });
 		correctAnswer = [];
+	
 
 		axios
 			.patch(`${url}/api/editLogic/${user._id}`, {
-				logic: score * 20,
+				logic: score * 10,
 			})
 			.then((res) => {
 				Swal.fire({
-					title: "Excellent",
+					title: "You have Concluded your IQ test.",
 					icon: "success",
-					text: `You have Concluded your IQ test.`,
+					text: `your score is : ${score * 10}`,
+				}).then(() => {
+					setUser({});
+					// Navigate("/logic-iqtest-page");
+
+					window.location.reload(Navigate("/logic-iqtest-page"));
 				});
 
-				setUser({});
-				Navigate("/logic-iqtest-page");
-
-				window.location.reload(Navigate("/logic-iqtest-page"));
 				setLoading(false);
 			});
 	};
 
 	const StartTimer = () => {
-		const CountDown = Date.now() + 300000;
+		const CountDown = Date.now() + 240000;
 		setInter(
 			setInterval(() => {
 				const nowTime = new Date();
@@ -149,7 +155,7 @@ const AllQuestion = () => {
 		fetchData();
 		fetchTestData();
 		// if (showNew) {
-		if (testData) {
+		if (testData && allMapTest.length <= 1) {
 			StartTimer();
 		}
 	}, [user]);
@@ -160,7 +166,7 @@ const AllQuestion = () => {
 				<Top>
 					<DetailText>
 						<h4>Welcome {user?.name}</h4>
-						<span> - {testData?.title} -</span>
+						<span> - KODE10X NEWINTAKE TEST -</span>
 					</DetailText>
 					<Row1>
 						<DetCard>
@@ -185,7 +191,7 @@ const AllQuestion = () => {
 									<span>Duration</span>{" "}
 								</Tit>
 								<Cont style={{ display: "flex", alignItems: "center" }}>
-									{testData?.duration}
+									4mins
 									<Cont
 										style={{
 											marginLeft: "100px",
@@ -230,7 +236,7 @@ const AllQuestion = () => {
 									/>{" "}
 									<span>Total Questions</span>{" "}
 								</Tit>
-								<Cont>{testData?.mainTest?.length}</Cont>
+								<Cont>10</Cont>
 							</CrdHold>
 						</DetCard>
 					</Row1>

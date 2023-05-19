@@ -154,6 +154,7 @@ function KelechiPage() {
 							createdAt,
 							phoneNumber,
 							address,
+							localgovernment,
 
 							_id,
 						}) => (
@@ -172,11 +173,13 @@ function KelechiPage() {
 												}}
 											/>
 										</div>
+
 										<div
 											style={{
-												marginLeft: "30px",
+												marginLeft: "20px",
 												fontWeight: "bold",
 												textTransform: "uppercase",
+												fontSize: "14px",
 											}}>
 											{name}
 											<div
@@ -195,14 +198,27 @@ function KelechiPage() {
 												}}>
 												<FiPhoneCall /> {phoneNumber}
 											</div>
-											<div
-												style={{
-													fontSize: "12px",
-													fontWeight: "lighter",
-													textTransform: "none",
-												}}>
-												<ImLocation2 />
-												{address}
+											<div style={{ display: "flex", alignItems: "center" }}>
+												<div
+													style={{
+														fontSize: "12px",
+														fontWeight: "lighter",
+														textTransform: "none",
+														marginRight: "10px",
+													}}>
+													<ImLocation2 />
+													{address}
+												</div>
+												<div
+													style={{
+														fontSize: "10px",
+														border: "1px solid coral",
+														padding: "5px",
+														borderRadius: "20px",
+														color: "coral",
+													}}>
+													{localgovernment}
+												</div>
 											</div>
 										</div>
 									</div>
@@ -218,7 +234,7 @@ function KelechiPage() {
 											<div className='name_img1'>
 												<div className='card_img1'>
 													<img
-														src='https://i.stack.imgur.com/l60Hf.png'
+														src='https://shanghai-date.com/uploads/g/t/t/h/q2t34kjldqrqv0pl7ihh.png'
 														style={{
 															height: "100%",
 															width: "100%",
@@ -229,7 +245,7 @@ function KelechiPage() {
 													/>
 												</div>
 												<div style={{ marginLeft: "10px" }}>
-													Admin(Leadership)
+													Admin Leadership
 												</div>
 											</div>
 											<center></center>

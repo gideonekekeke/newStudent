@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import img1 from "../Components/Assets/Blacl_logo.png";
+import img1 from "../Components/Assets/log.png";
 import img2 from "../Components/Assets/1.svg";
 import { GrStatusGood } from "react-icons/gr";
 import axios from "axios";
@@ -21,6 +21,7 @@ const EntryUserPage = () => {
 	// console.log("recoil user", user);
 
 	const CheckUserRegister = async () => {
+		const main = "http://localhost:15790";
 		setLoading(true);
 		await axios
 			.post(`${url}/api/login`, { name })
@@ -29,8 +30,10 @@ const EntryUserPage = () => {
 				setLoading(false);
 				setUser(res.data?.data);
 
-				navigate(
-					"/student-iq-test-457erhfbdr46364783-codelab-intake-578349ffdnbghg-question",
+				window.location.reload(
+					navigate(
+						"/student-iq-test-457erhfbdr46364783-codelab-intake-578349ffdnbghg-question",
+					),
 				);
 			})
 			.catch((res) => {
@@ -61,7 +64,7 @@ const EntryUserPage = () => {
 							<Input
 								value={name}
 								onChange={(e) => {
-									setName(e.target.value);
+									setName(e.target.value.toLowerCase());
 								}}
 								placeholder='Enter Your Registration name'
 								type='text'
@@ -167,7 +170,7 @@ const Button = styled.button`
 	border: none;
 	outline: none;
 	border-radius: 5px;
-	background-color: #7463f3;
+	background-color: #8dd9bf;
 	color: white;
 	@media screen and (max-width: 960px) {
 		width: 300px;
@@ -226,7 +229,7 @@ const LogoHold = styled.div`
 
 const Logo = styled.img`
 	object-fit: contain;
-	height: 100%;
+	height: 300px;
 	width: 100%;
 `;
 
@@ -264,5 +267,7 @@ const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	font-family: poppins;
+
 	/* background-color: white; */
 `;

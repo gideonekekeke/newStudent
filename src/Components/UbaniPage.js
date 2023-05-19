@@ -9,7 +9,9 @@ import { ImLocation2 } from "react-icons/im";
 import pic from "./uba.jpg";
 import Swal from "sweetalert2";
 import Loading from "./LoadState";
+
 function UbaniPage() {
+	const url = "https://codelabintakeapi.onrender.com";
 	const [dataUser, setDataUser] = useState([]);
 	const [load, setLoad] = React.useState(true);
 	const [loading, setLoading] = React.useState(false);
@@ -214,7 +216,7 @@ function UbaniPage() {
 											<div className='name_img1'>
 												<div className='card_img1'>
 													<img
-														src='https://i.stack.imgur.com/l60Hf.png'
+														src=''
 														style={{
 															height: "100%",
 															width: "100%",
